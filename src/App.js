@@ -23,7 +23,9 @@ function App() {
       <nav>
          <a className="logo" href="index.html"><span className="mark">GLIITCH</span>Movies</a>    
       </nav>
-        <Moviecard/>
+    
+    <div className="movie_list_ul">
+        
        {isLoading ? (
         <p>Wait for loading...</p>
       ) : (
@@ -31,7 +33,15 @@ function App() {
         movies.length > 0 ? (
           movies.map((item, index) => (
             <div key={index}>
-              {JSON.stringify(item.id)} 
+                     <Moviecard 
+                     image={item.image} 
+                      title={item.title}
+                      tagline={item.tagline}
+                      voteaverage={item.vote_average}
+                      overview={item.overview}
+
+                      />
+  
             </div>
           ))
         ) 
@@ -39,7 +49,7 @@ function App() {
           <p>No data available.</p>
         )
       )}
- 
+ </div>
       <footer>
          <p className="copyright-text">&copy; 2023 Copyright All Rights Reserved Designed by <span className="mark">WebsCodeMedia</span></p>
         <p className="copyright-text">This product uses the TMDb API.</p>

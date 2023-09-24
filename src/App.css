@@ -107,21 +107,21 @@ form {
   padding: 80px 80px;
   list-style: none;
 }
-.movie_list_item {
+.moviecard {
   position: relative;
   background: #fff;
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
-.movie_list_item img {
+.moviecard_image {
   height: 300px;
   object-fit: cover;
   border-radius: 6px;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
 }
-.movie_info {
+.moviecard_title {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -146,7 +146,7 @@ form {
   background: rgba(255, 0, 0, 0.2);
 }
 
-.overview {
+.moviecard_overview {
   position: absolute;
   top: 0;
   left: 0;
@@ -159,10 +159,10 @@ form {
   transform: translateY(101%);
   transition: transform 0.3s ease-in;
 }
-.movie_list_item:hover .overview {
+.movie_list_item:hover .moviecard_overview {
   transform: translateY(0%);
 }
-.overview h3 {
+.moviecard_overview h3 {
   margin-bottom: 15px;
   color: #0d6efd;
 }
