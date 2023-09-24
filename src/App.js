@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     async function getData() {
-      const response = await fetch('/api/movies');
+      const response = await fetch("/api/movies");
       const payload = await response.json();
       setMovies(payload.data);
     }
@@ -17,7 +17,8 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and your changes will live-update automatically.
+          Edit <code>src/App.js</code> and your changes will live-update
+          automatically.
         </p>
         <a
           className="App-link"
@@ -29,7 +30,6 @@ function App() {
         </a>
         <p>Nice Movies:</p>
         <p>{JSON.stringify(movies)}</p>
-        
       </header>
     </div>
   );

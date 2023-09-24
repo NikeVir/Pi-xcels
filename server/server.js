@@ -15,10 +15,12 @@ app.get("/api/movies", (request, response) => {
   response.json({ data: [{ id: 1, name: '1' }, { id: 2, name: '2' }] });
 });
 
+
+
 // Express port-switching logic
 let port;
 console.log("❇️ NODE_ENV is", process.env.NODE_ENV);
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === "development") {
   port = process.env.PORT || 3000;
   app.use(express.static(path.join(__dirname, "../build")));
   app.get("*", (request, response) => {
