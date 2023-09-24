@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-// import Moviecard from "./Moviecard.js"
+import Moviecard from "./Moviecard.js"
 function App() {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -10,8 +10,7 @@ function App() {
     async function getData() {
       const response = await fetch("/api/movies");
       const payload = await response.json();
-      console.log("hello")
-      setMovies(payload.data);
+      setMovies(payload);
       setIsLoading(false);
     }
      setTimeout(() => {
@@ -24,22 +23,22 @@ function App() {
       <nav>
          <a className="logo" href="index.html"><span className="mark">GLIITCH</span>Movies</a>    
       </nav>
-    
+        <Moviecard/>
        {isLoading ? (
         <p>Wait for loading...</p>
       ) : (
-            <div style={{background:"black",height:"100px",width:"100px"}}>{movies}</div>
-        // movies.length > 0 ? (
-        //   movies.map((item, index) => (
-        //     <div key={index}>
-        //       {JSON.stringify(item)} 
-        //     </div>
-        //   ))
+            // <div style={{background:"black",height:"100px",width:"100px"}}>{movies}</div>
+        movies.length > 0 ? (
+          movies.map((item, index) => (
+            <div key={index}>
+              {JSON.stringify(item.id)} 
+            </div>
+          ))
         ) 
-        // : (
-        //   <p>No data available.</p>
-        // )
-      }
+        : (
+          <p>No data available.</p>
+        )
+      )}
  
       <footer>
          <p className="copyright-text">&copy; 2023 Copyright All Rights Reserved Designed by <span className="mark">WebsCodeMedia</span></p>
