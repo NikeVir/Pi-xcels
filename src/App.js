@@ -22,16 +22,18 @@ function App() {
   }, []);
   
   const viewMovie=async(id)=>{
+    console.log(id)
     const response = await fetch(`/api/movies/${id}`);
     const payload = await response.json();
     setMovie(payload)
     setShow(true)
   }
   return (
-    <div>
+    <div >
       <nav>
          <a className="logo" href="index.html"><span className="mark">GLIITCH</span>Movies</a>    
       </nav>
+    
     {
       show?(
         <div>
@@ -46,11 +48,11 @@ function App() {
               <div>{movie.title}</div>
               <div>{movie.vote_average}</div>
               <div>{movie.vote_count}</div>
+<button onClick={()=>setShow(false)}>back</button>
     
           </div>
         </div>
-      ):("")
-    }
+      ):(
     <div className="movie_list_ul">
         
        {isLoading ? (
@@ -61,12 +63,12 @@ function App() {
           movies.map((item, index) => (
             <div key={index}>
                      <Moviecard 
-                     image={item.image} 
+                     id={item.id} 
                       title={item.title}
                       tagline={item.tagline}
                       voteaverage={item.vote_average}
                       overview={item.overview}
-
+                      viewMovie ={viewMovie}
                       />
   
             </div>
@@ -77,6 +79,7 @@ function App() {
         )
       )}
  </div>
+)}
       <footer>
          <p className="copyright-text">&copy; 2023 Copyright All Rights Reserved Designed by <span className="mark">WebsCodeMedia</span></p>
         <p className="copyright-text">This product uses the TMDb API.</p>
