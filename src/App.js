@@ -13,12 +13,17 @@ function App() {
     getData();
   }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        
-        <p>Nice Movies:</p>
-        <p>{JSON.stringify(movies)}</p>
-      </header>
+    <div>
+      <nav>
+         <a className="logo" href="index.html"><span className="mark">GLITCH</span>Movies</a>    
+      </nav>
+      
+      <ul className="movie_list_ul" id="movieUl"></ul>
+
+      <footer>
+         <p className="copyright-text">&copy; 2023 Copyright All Rights Reserved Designed by <span className="mark">WebsCodeMedia</span></p>
+        <p className="copyright-text">This product uses the TMDb API.</p>
+      </footer>
     </div>
   );
 }
