@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-
+        
         <p>Nice Movies:</p>
         <p>{JSON.stringify(movies)}</p>
       </header>

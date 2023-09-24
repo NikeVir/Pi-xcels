@@ -8,13 +8,24 @@ app.get("/api/ping", (request, response) => {
   console.log("❇️ Received GET request to /api/ping");
   response.send("pong!");
 });
-const moviesData = require('./movies.json');
+
+const moviesData = require('./movies_metadata.json');
 
 app.get("/api/movies", (request, response) => {
-  console.log(moviesData);
   response.json(moviesData);
 });
 
+app.get('/api/movie/:id', (request, response) => {
+  const movieId = request.params.id;
+  console.log(movieId)
+  const movie = moviesData.find((movie) => movie.id === parseInt(movieId));
+
+  if (!movie) {
+    response.status(404).json({ message: 'Movie not found' });
+  } else {
+    response.json(movie);
+  }
+});
 
 
 // Express port-switching logic
