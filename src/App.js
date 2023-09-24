@@ -22,9 +22,10 @@ function App() {
   }, []);
   
   const viewMovie=async(id)=>{
-    console.log(id)
     const response = await fetch(`/api/movies/${id}`);
+    console.log(response)
     const payload = await response.json();
+     
     setMovie(payload)
     setShow(true)
   }
@@ -81,8 +82,8 @@ function App() {
  </div>
 )}
       <footer>
-         <p className="copyright-text">&copy; 2023 Copyright All Rights Reserved Designed by <span className="mark">WebsCodeMedia</span></p>
-        <p className="copyright-text">This product uses the TMDb API.</p>
+         <p className="copyright-text">&copy; 2023 Copyright All Rights Reserved </p>
+
       </footer>
     </div>
   );
