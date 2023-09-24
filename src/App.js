@@ -22,13 +22,13 @@ function App() {
   return (
     <div>
       <nav>
-         <a className="logo" href="index.html"><span className="mark">GLITCH</span>Movies</a>    
+         <a className="logo" href="index.html"><span className="mark">GLIITCH</span>Movies</a>    
       </nav>
     
        {isLoading ? (
         <p>Wait for loading...</p>
       ) : (
-            <div style={{background:"black"}}>{movies}</div>
+            <div style={{background:"black",height:"100px",width:"100px"}}>{movies}</div>
         // movies.length > 0 ? (
         //   movies.map((item, index) => (
         //     <div key={index}>
